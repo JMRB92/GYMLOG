@@ -1,37 +1,26 @@
 # GYM LOG
 
-Aplicación web estática en español para gestionar rutinas, consultar una biblioteca de ejercicios, registrar sesiones y exportar/importar datos. No necesita cuentas ni servicios externos. Los datos se almacenan localmente en IndexedDB del navegador.
+Aplicación web estática en español para crear rutinas, consultar ejercicios, registrar sesiones y exportar copias de seguridad. No requiere cuenta ni servidor propio.
 
 ## Archivos
+- `index.html`: punto de entrada.
+- `styles.css`: interfaz responsive.
+- `app.js`: lógica de aplicación.
+- `exercise-catalog.json`: catálogo inicial extraído de la especificación.
+- `templates.json`: cuatro plantillas iniciales.
 
-Todos los archivos de la aplicación están en la raíz de esta carpeta: `index.html`, `styles.css`, `app.js`, `library.js` y `exercise-catalog.json`. El orden de scripts en `index.html` carga primero la biblioteca y después la aplicación.
+## Ejecutar localmente
+Abre la carpeta con un servidor estático (recomendado, porque `fetch()` carga los JSON):
+```bash
+python3 -m http.server 8000
+```
+Después abre `http://localhost:8000`.
 
-## Publicar en GitHub Pages (sin compilar)
+## Publicar en GitHub Pages
+Sube todos los archivos de la carpeta a la raíz de la rama publicada (`main`, `/root`). La dirección habitual será `https://USUARIO.github.io/REPOSITORIO/`.
 
-1. Descarga y descomprime el ZIP.
-2. Abre el repositorio de GitHub y entra en **Code**.
-3. Selecciona **Add file → Upload files**.
-4. Arrastra los archivos de esta carpeta directamente a la raíz del repositorio (no arrastres la carpeta contenedora ni el ZIP).
-5. Confirma los cambios con **Commit changes**.
-6. Abre **Settings → Pages**.
-7. En **Build and deployment**, selecciona **Deploy from a branch**, rama `main` y carpeta `/(root)`. Pulsa **Save**.
-8. Abre **Actions** y espera a que `pages build and deployment` termine en verde.
-9. La URL habitual de un repositorio llamado `GYMLOG` en el usuario `JMRB92` es `https://jmrb92.github.io/GYMLOG/`.
+## Datos y privacidad
+Los datos se guardan en IndexedDB y una copia auxiliar de compatibilidad en localStorage. No hay cuentas ni sincronización en la nube. Exporta copias desde Ajustes para mover datos entre dispositivos.
 
-Si anteriormente pulsaste **Unpublish site**, vuelve a Settings → Pages y guarda otra vez la configuración. No es necesario borrar el repositorio. Si la ejecución de Pages se cancela, abre el detalle de Actions para revisar el motivo; no vuelvas a subir los archivos repetidamente.
-
-## Uso local
-
-Para una prueba local fiable, abre un terminal en esta carpeta y ejecuta `python -m http.server 8000`; después visita `http://localhost:8000`.
-
-## Privacidad y copias
-
-- Los datos se guardan en el navegador y dispositivo donde se utiliza la aplicación. No hay sincronización automática entre dispositivos.
-- Exporta periódicamente **Ajustes → Exportar todos los datos**.
-- En **Historial** puedes descargar/compartir el historial y cargarlo más tarde.
-- Las rutinas individuales se pueden exportar e importar mediante archivos `.gymlog`.
-- Los archivos importados se leen como datos; no se ejecuta código que contengan.
-
-## Alcance y pruebas
-
-La aplicación incluye biblioteca de ejercicios, rutinas, registro de entrenamientos, historial, progreso básico y exportación/importación local. Se ha comprobado la sintaxis de JavaScript con `node --check`. Esta entrega no debe considerarse certificada para todos los 50 escenarios de la especificación: antes de depender de ella como único registro, prueba las operaciones principales en el móvil y navegador que vayas a utilizar. La conversión avanzada de rutinas desde texto, la PWA/offline completa y algunas reglas avanzadas de recuperación de sesiones pueden requerir desarrollo y pruebas adicionales.
+## Limitaciones conocidas de esta entrega
+Es una base funcional de primera versión, no se afirma que haya superado las 50 pruebas completas de la especificación. El catálogo contiene los nombres y grupos/subgrupos extraídos del documento, pero aún no incluye fotografías precargadas ni descripciones/instrucciones detalladas para todos los ejercicios. El análisis de texto es local y basado en reglas, por lo que exige revisar los elementos pendientes de interpretar antes de guardar. Los gráficos son resúmenes sencillos, no un sistema estadístico avanzado.
