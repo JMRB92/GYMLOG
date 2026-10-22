@@ -1,84 +1,43 @@
 # GYM LOG
 
-Aplicación web para crear y editar rutinas de gimnasio, registrar entrenamientos y consultar el historial. Está construida con HTML, CSS y JavaScript sin dependencias externas ni servidor: puedes ejecutarla localmente o publicarla gratis con **GitHub Pages**.
+Aplicación web en español para organizar rutinas de gimnasio y registrar entrenamientos. No requiere cuenta ni servidor: los datos se guardan en el almacenamiento local del navegador.
 
-## Probar la aplicación
+## Funciones
 
-1. Descarga este repositorio o abre `index.html` en un navegador moderno.
-2. Crea o selecciona una rutina y registra una sesión.
-3. Los datos se guardan en el almacenamiento local (`localStorage`) de ese navegador y dispositivo.
-
-> **Importante:** los datos no se sincronizan entre dispositivos ni se guardan en GitHub. Exporta copias de seguridad desde la aplicación antes de borrar los datos del navegador o cambiar de dispositivo. No uses el modo privado si necesitas conservar los datos.
-
-## Publicarla en GitHub Pages
-
-### Opción A: subir los archivos desde la web de GitHub
-
-1. Entra en [GitHub](https://github.com/) e inicia sesión.
-2. Pulsa **New repository**.
-3. Pon como nombre `gym-log` (o el que prefieras). Puedes marcarlo como **Public** y crear el repositorio. No necesitas añadir README, licencia ni `.gitignore` desde GitHub porque ya están incluidos aquí.
-4. En el repositorio, pulsa **Add file → Upload files**.
-5. Sube **el contenido** de esta carpeta: `index.html`, `README.md`, `LICENSE`, `CHANGELOG.md`, `CONTRIBUTING.md`, `SECURITY.md`, `.nojekyll`, `favicon.svg`, `manifest.webmanifest`, `robots.txt`, `.gitignore` y la carpeta `.github` con su flujo de trabajo.
-6. Pulsa **Commit changes**.
-7. Abre **Settings → Pages**. En **Build and deployment**, selecciona **GitHub Actions** si no se ha seleccionado automáticamente.
-8. Abre la pestaña **Actions** y espera a que termine correctamente el flujo **Deploy GYM LOG to GitHub Pages**.
-9. La dirección será `https://TU-USUARIO.github.io/NOMBRE-DEL-REPOSITORIO/`. Si el repositorio se llama `gym-log`, por ejemplo, la ruta termina en `/gym-log/`.
-
-### Opción B: con Git en el ordenador
-
-Descarga y descomprime el ZIP, abre una terminal dentro de la carpeta y ejecuta:
-
-```bash
-git init
-git add .
-git commit -m "Publica GYM LOG"
-git branch -M main
-git remote add origin https://github.com/TU-USUARIO/NOMBRE-DEL-REPOSITORIO.git
-git push -u origin main
-```
-
-Sustituye `TU-USUARIO` y `NOMBRE-DEL-REPOSITORIO` por los valores reales. Si el repositorio ya tiene commits o archivos, revisa su estado antes de ejecutar estos comandos para no sobrescribir trabajo.
-
-## Qué incluye
-
-- Cuatro rutinas de ejemplo editables.
-- Registro de series, repeticiones y peso.
-- Recuperación de valores de una sesión anterior compatible.
-- Guardado automático local y reanudación de sesiones interrumpidas.
-- Temporizador de descanso con ajustes.
-- Biblioteca de ejercicios, búsqueda y ejercicios personalizados.
-- Edición de rutinas, días y ejercicios.
-- Importación de rutinas desde texto con vista previa.
+- Rutinas iniciales y creación, edición, duplicado, exportación e importación de rutinas.
+- Registro de peso, repeticiones, series completadas, notas y descansos.
+- Reanudar una sesión sin terminar, incluso después de salir de la pantalla o volver a abrir la aplicación en el mismo navegador.
+- Botón **Guardar y salir** para dejar una sesión en curso y retomarla después.
+- Añadir ejercicios durante una sesión y sustituir un ejercicio por otro sin perder el resto del entrenamiento. Al sustituirlo, se reinician las series de ese ejercicio para evitar mezclar registros.
 - Historial y estadísticas básicas.
-- Exportación e importación de copias de seguridad.
-- Flujo de GitHub Actions para publicar en GitHub Pages.
+- Copias de seguridad JSON descargables y restaurables.
+- Aviso para crear una copia local después de guardar una rutina o terminar una sesión. Permite descargarla, no recibir recordatorios durante una semana o desactivar los recordatorios para siempre.
 
-## Privacidad y límites actuales
+## Publicar gratis con GitHub Pages
 
-- La aplicación no necesita cuenta, backend ni conexión a una API externa.
-- Los registros se guardan en el almacenamiento local del navegador. Borrar los datos del sitio puede eliminarlos.
-- No existe sincronización en la nube, inicio de sesión, base de datos remota ni recuperación de datos perdidos.
-- Esta versión no implementa una PWA completa ni garantiza funcionamiento instalable/offline mediante service worker.
-- El flujo de publicación no sustituye las pruebas manuales en distintos navegadores y móviles.
+1. Crea un repositorio en GitHub, por ejemplo `gym-log`.
+2. Sube todos los archivos y carpetas de este proyecto, incluida `.github/workflows/deploy-pages.yml`.
+3. En el repositorio abre **Settings → Pages** y selecciona **GitHub Actions** como método de publicación.
+4. Abre la pestaña **Actions** y espera a que termine el flujo `Deploy GYM LOG to GitHub Pages`.
+5. La URL habitual será `https://TU-USUARIO.github.io/gym-log/`.
 
-## Estructura
+El flujo publica el contenido del repositorio en cada actualización de la rama `main`.
 
-```text
-GYM_LOG_GitHub/
-├── .github/workflows/deploy-pages.yml
-├── .gitignore
-├── .nojekyll
-├── CHANGELOG.md
-├── CONTRIBUTING.md
-├── LICENSE
-├── README.md
-├── SECURITY.md
-├── favicon.svg
-├── index.html
-├── manifest.webmanifest
-└── robots.txt
-```
+## Datos y copias de seguridad
+
+Los datos se guardan en `localStorage` del navegador. No se sincronizan entre dispositivos ni se envían a GitHub. Borrar los datos del sitio, cambiar de navegador o dispositivo puede hacer que se pierdan. Descarga periódicamente la copia JSON y guárdala en un lugar seguro. No subas copias personales de la aplicación al repositorio público.
+
+## Limitaciones conocidas
+
+- Esta versión no tiene cuenta, sincronización en la nube ni base de datos remota.
+- El archivo `manifest.webmanifest` aporta metadatos, pero esta versión no incluye un service worker; por tanto, no garantiza instalación PWA ni funcionamiento offline tras borrar la caché.
+- Las copias se descargan manualmente al dispositivo; el navegador no permite escribir silenciosamente en una carpeta local sin permiso.
+- Prueba la aplicación en el navegador y dispositivo de destino antes de depender de ella para guardar tus registros.
+
+## Desarrollo local
+
+Abre `index.html` en un navegador moderno. Para probar Pages localmente, puedes servir la carpeta con cualquier servidor estático, por ejemplo `python -m http.server 8000`.
 
 ## Licencia
 
-Distribuido bajo la licencia MIT. Consulta `LICENSE`.
+MIT. Consulta `LICENSE`.

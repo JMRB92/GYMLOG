@@ -1,11 +1,14 @@
 {
   "name": "GYM LOG",
   "short_name": "GYM LOG",
-  "description": "Organiza tus rutinas y registra tus entrenamientos.",
+  "description": "Registra rutinas y entrenamientos de gimnasio.",
   "lang": "es",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f3f5f6",
-  "theme_color": "#0f766e"
+  "theme_color": "#0f766e",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
 }

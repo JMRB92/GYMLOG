@@ -1,9 +1,13 @@
 # Historial de cambios
 
-## 1.0.0 — 2026-10-20
+## Actualización: sesiones editables y copias de seguridad
 
-- Primera versión empaquetada para publicación estática.
-- Rutinas editables y registro local de sesiones.
-- Temporizador de descanso, biblioteca de ejercicios, historial y estadísticas básicas.
-- Importación de rutinas desde texto y copias de seguridad.
-- Configuración de despliegue automático en GitHub Pages mediante GitHub Actions.
+- Añadido **Guardar y salir** para dejar una sesión activa y retomarla más tarde.
+- Corregido el botón **Añadir ejercicio** durante un entrenamiento.
+- Añadida la opción **Cambiar** para sustituir un ejercicio durante la sesión.
+- Las rutinas guardadas pueden editarse desde la pantalla de Rutinas.
+- Añadido un recordatorio de copia de seguridad tras guardar una rutina o terminar una sesión, con opciones de recordatorio semanal o desactivación permanente.
+
+## Versión inicial
+
+- Rutinas, registro de series, temporizador, historial, estadísticas y copias JSON.
