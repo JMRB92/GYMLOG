@@ -1,3 +1,8 @@
+## 1.05
+- Corregido el contraste del botón «Compartir GYM LOG» para garantizar texto oscuro sobre fondo amarillo.
+- La última rutina utilizada aparece al principio de Inicio y se identifica como «Última rutina».
+- Se conserva el número de versión solicitado: 1.05.
+
 # Changelog
 
 ## 1.04

@@ -55,3 +55,8 @@ MIT. Consulta `LICENSE`.
 - Logotipo actualizado con el diseño proporcionado.
 - Tipografía, contraste, botones, navegación y tarjetas ajustados para facilitar la lectura.
 - Sin cambios intencionados en la lógica ni en las funciones de la aplicación.
+
+
+## Versión 1.05
+- Mejora de contraste del botón «Compartir GYM LOG».
+- La rutina usada más recientemente se muestra arriba en Inicio.
