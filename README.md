@@ -1,4 +1,4 @@
-# GYM LOG Web · v1.08 revisada
+# GYM LOG Web · v1.09 revisada
 
 Aplicación web de entrenamiento en español. Mantiene el diseño negro, rojo y amarillo y las funciones de registro de rutinas y entrenamientos. No requiere cuenta ni servidor de datos: la información personal se guarda en el almacenamiento local del navegador.
 
@@ -36,8 +36,12 @@ El manifiesto contiene metadatos de instalación, pero esta versión no incorpor
 
 ## Historial de cambios
 
-### v1.08 revisada
+### v1.09 revisada
 - Conserva la interfaz y las funciones web existentes.
+- En móviles, el lema queda debajo del logotipo y de los botones del encabezado.
+- La edición de un ejercicio de rutina usa una ventana específica con series, repeticiones, descanso, variante y notas.
+- Progreso muestra el peso y las repeticiones del último registro por ejercicio, con gráficas reales y estimación orientativa.
+- El calendario permite abrir desde cada fecha el entrenamiento guardado en el historial.
 - Corrige el enlace de compartir para usar la URL pública exacta.
 - Corrige la creación de ejercicios personalizados desde el selector de ejercicios del editor de rutinas, sin perder el editor abierto.
 - Recupera las rutinas de serie que falten al cargar datos antiguos o restaurar copias, sin sobrescribir las rutinas del usuario.
