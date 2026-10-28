@@ -1,62 +1,45 @@
-# GYM LOG · versión 1.03
+# GYM LOG Web · v1.08 revisada
 
-Aplicación web en español para organizar rutinas de gimnasio y registrar entrenamientos. No requiere cuenta ni servidor: los datos se guardan en el almacenamiento local del navegador.
+Aplicación web de entrenamiento en español. Mantiene el diseño negro, rojo y amarillo y las funciones de registro de rutinas y entrenamientos. No requiere cuenta ni servidor de datos: la información personal se guarda en el almacenamiento local del navegador.
 
-## Funciones
+## Funciones conservadas
 
-- Rutinas iniciales y creación, edición, duplicado e importación de rutinas.
-- Importación desde texto con nombre y número de días definidos antes de analizar; vista previa para mover ejercicios de un día a otro y ajustar nombres de días.
-- Compartir una sola rutina en un archivo `.gymlog`, sin incluir el resto de las rutinas ni el historial.
-- Botón **Compartir GYM LOG** para copiar la URL de la aplicación y enviársela a otra persona.
-- Número de versión visible discretamente en una esquina de la interfaz.
-- Registro de peso, repeticiones, series completadas, notas y descansos.
-- Reanudar una sesión sin terminar, incluso después de salir de la pantalla o volver a abrir la aplicación en el mismo navegador.
-- Botón **Guardar y salir** para dejar una sesión en curso y retomarla después.
-- Añadir ejercicios durante una sesión y sustituir un ejercicio por otro sin perder el resto del entrenamiento. Al sustituirlo, se reinician las series de ese ejercicio para evitar mezclar registros.
-- Historial y estadísticas básicas.
-- Copias de seguridad JSON descargables y restaurables.
-- Aviso para crear una copia local después de guardar una rutina o terminar una sesión. Permite descargarla, no recibir recordatorios durante una semana o desactivar los recordatorios para siempre.
+- Rutinas de serie: **Full Body de 2 días**, **Push Pull Legs de 3 días**, **Hipertrofia de 5 días** y **Rutina híbrida de 5 días**. Se muestran siempre en «Mis rutinas», no se pueden editar ni eliminar y se pueden duplicar.
+- Rutinas propias: creación desde cero, edición, duplicado, activación/desactivación, eliminación e importación desde texto o archivo.
+- Inicio: muestra únicamente las rutinas activas y el calendario de actividad de las últimas 12 semanas. La semana actual queda al final del área desplazable; los días empiezan en lunes, los meses aparecen en vertical y los entrenamientos finalizados se marcan en verde.
+- Registro de entrenamientos: series, peso, repeticiones/tiempo, notas, descansos, añadir/quitar ejercicios y series, sustituir ejercicios y guardar/reanudar una sesión.
+- Biblioteca de ejercicios: búsqueda, filtro por grupo y creación/edición de ejercicios personalizados.
+- Historial, detalle de sesiones y progreso de cargas.
+- Temporizador de descanso configurable y opción de inicio automático.
+- Copia de seguridad completa JSON, restauración, exportación de rutinas y compartir una sola rutina mediante archivo `.gymlog`.
+- Botón «Compartir GYM LOG» con la URL pública exacta: https://jmrb92.github.io/GYMLOG/.
 
-## Publicar gratis con GitHub Pages
+## Publicar en GitHub Pages
 
-1. Crea un repositorio en GitHub, por ejemplo `gym-log`.
-2. Sube todos los archivos y carpetas de este proyecto, incluida `.github/workflows/deploy-pages.yml`.
-3. En el repositorio abre **Settings → Pages** y selecciona **GitHub Actions** como método de publicación.
-4. Abre la pestaña **Actions** y espera a que termine el flujo `Deploy GYM LOG to GitHub Pages`.
-5. La URL habitual será `https://TU-USUARIO.github.io/gym-log/`.
+1. Descomprime este ZIP.
+2. Sube **el contenido de esta carpeta directamente a la raíz** del repositorio `JMRB92/GYMLOG`, de modo que `index.html` quede en la raíz junto a `gym-log-logo.png`.
+3. Si el repositorio ya publica GitHub Pages, espera a que termine la publicación y abre https://jmrb92.github.io/GYMLOG/.
+4. Si necesitas configurar Pages, entra en **Settings → Pages** y configura el origen correspondiente al repositorio. El flujo incluido en `.github/workflows/deploy-pages.yml` publica la rama `main` mediante GitHub Actions.
 
-El flujo publica el contenido del repositorio en cada actualización de la rama `main`.
+No subas archivos de copia de seguridad personales al repositorio público.
 
-## Datos y copias de seguridad
+## Datos y privacidad
 
-Los datos se guardan en `localStorage` del navegador. No se sincronizan entre dispositivos ni se envían a GitHub. Borrar los datos del sitio, cambiar de navegador o dispositivo puede hacer que se pierdan. Descarga periódicamente la copia JSON y guárdala en un lugar seguro. No subas copias personales de la aplicación al repositorio público.
+Los datos se guardan en `localStorage` del navegador. No hay cuenta ni sincronización entre dispositivos y la aplicación no envía las rutinas o el historial a un servidor propio. Borrar los datos del sitio, cambiar de navegador o dispositivo puede hacer que se pierdan. Descarga periódicamente una copia JSON y guárdala en un lugar seguro.
 
-## Limitaciones conocidas
+El manifiesto contiene metadatos de instalación, pero esta versión no incorpora un service worker; por tanto, no garantiza uso sin conexión ni funcionamiento en segundo plano tras cerrar el navegador.
 
-- Esta versión no tiene cuenta, sincronización en la nube ni base de datos remota.
-- El archivo `manifest.webmanifest` aporta metadatos, pero esta versión no incluye un service worker; por tanto, no garantiza instalación PWA ni funcionamiento offline tras borrar la caché.
-- Las copias se descargan manualmente al dispositivo; el navegador no permite escribir silenciosamente en una carpeta local sin permiso.
-- Prueba la aplicación en el navegador y dispositivo de destino antes de depender de ella para guardar tus registros.
+## Prueba local
 
-## Desarrollo local
+- Para probar todas las funciones, abre `index.html` desde un servidor estático (por ejemplo, `python -m http.server 8000`) y visita `http://localhost:8000`.
+- Se incluye además un archivo HTML independiente en la entrega, con el logotipo incrustado, para abrirlo directamente en el navegador. Sus datos se guardan por separado de los de la URL publicada.
 
-Abre `index.html` en un navegador moderno. Para probar Pages localmente, puedes servir la carpeta con cualquier servidor estático, por ejemplo `python -m http.server 8000`.
+## Historial de cambios
 
-## Licencia
-
-MIT. Consulta `LICENSE`.
-
-
-**Compartir GYM LOG:** el botón superior abre un diálogo con el enlace público `https://jmrb92.github.io/GYMLOG/?utm_source=chatgpt.com`. Si el navegador bloquea el portapapeles, permite seleccionar y copiar el enlace manualmente.
-
-
-## Versión 1.04 — identidad visual
-- Nueva identidad visual negro, rojo y amarillo.
-- Logotipo actualizado con el diseño proporcionado.
-- Tipografía, contraste, botones, navegación y tarjetas ajustados para facilitar la lectura.
-- Sin cambios intencionados en la lógica ni en las funciones de la aplicación.
-
-
-## Versión 1.05
-- Mejora de contraste del botón «Compartir GYM LOG».
-- La rutina usada más recientemente se muestra arriba en Inicio.
+### v1.08 revisada
+- Conserva la interfaz y las funciones web existentes.
+- Corrige el enlace de compartir para usar la URL pública exacta.
+- Corrige la creación de ejercicios personalizados desde el selector de ejercicios del editor de rutinas, sin perder el editor abierto.
+- Recupera las rutinas de serie que falten al cargar datos antiguos o restaurar copias, sin sobrescribir las rutinas del usuario.
+- Evita reactivar automáticamente una rutina si el usuario ha desactivado intencionadamente todas las rutinas.
+- Refuerza la importación de rutinas y la normalización de datos.
